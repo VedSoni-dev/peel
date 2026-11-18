@@ -11,13 +11,17 @@
     "start": "next start",
     "typecheck": "tsc --noEmit"
   },
-  "engines": { "node": ">=20.9" },
+  "engines": {
+    "node": ">=20.9"
+  },
   "dependencies": {
     "@anthropic-ai/sdk": "1.8.0",
+    "barcode-detector": "3.2.3",
     "jose": "6.2.17",
     "next": "16.4.6",
     "react": "19.3.1",
-    "react-dom": "19.3.1"
+    "react-dom": "19.3.1",
+    "zxing-wasm": "3.1.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.5",

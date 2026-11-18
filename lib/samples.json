@@ -1,0 +1,310 @@
+[
+ {
+  "code": "0028400090896",
+  "name": "Nacho Cheese",
+  "brand": "Doritos",
+  "quantity": "1 oz (28.3 g)",
+  "image": "/products/0028400090896.jpg",
+  "nutriscore": {
+   "grade": "d",
+   "score": 16
+  },
+  "nutriments": {
+   "added-sugars_100g": 0.705492257222477,
+   "calcium_100g": 0.176373064305619,
+   "carbohydrates-total_100g": 59.9668418639105,
+   "carbohydrates_100g": 59.9668418639105,
+   "energy-kcal_100g": 529.119192916858,
+   "energy-kj_100g": 2211.71822639247,
+   "energy_100g": 2211.71822639247,
+   "fat_100g": 28.2196902888991,
+   "fiber_100g": 3.52746128611239,
+   "fruits-vegetables-legumes-estimate-from-ingredients_100g": 1.76,
+   "fruits-vegetables-nuts-estimate-from-ingredients_100g": 4.93,
+   "iron_100g": 0.00105823838583372,
+   "nova-group_100g": 4,
+   "potassium_100g": 0.352746128611238,
+   "proteins_100g": 7.05492257222477,
+   "salt_100g": 1.49917104659776,
+   "saturated-fat_100g": 3.52746128611239,
+   "sodium_100g": 0.599668418639105,
+   "sugars_100g": 3.52746128611239
+  },
+  "additiveTags": [
+   "en:e102",
+   "en:e110",
+   "en:e129",
+   "en:e270",
+   "en:e330",
+   "en:e621",
+   "en:e627",
+   "en:e631"
+  ],
+  "labels": [],
+  "categories": [
+   "en:snacks",
+   "en:salty-snacks",
+   "en:appetizers",
+   "en:chips-and-fries",
+   "en:crisps",
+   "en:corn-chips",
+   "en:flavoured-corn-crisps"
+  ],
+  "ingredients": "CORN, VEGETABLE OIL (CORN OIL, CANOLA OIL, SOYBEAN OIL, SUNFLOWER OIL), CORN MALTODEXTRIN, 2% CHEDDAR CHEESE (MILK, CHEESE CULTURES, SALT, ENZYMES), SALT, WHEY, MONOSODIUM GLUTAMATE, BUTTERMILK, ROMANO CHEESE (MILK, CHEESE CULTURES, SALT, ENZYMES), WHEY PROTEIN CONCENTRATE, ONION POWDER, POTASSIUM SALT, CORN FLOUR, NATURAL & ARTIFICIAL FLAVORS, DEXTROSE, TOMATO POWDER, LACTOSE, SPICES, ARTIFICIAL COLOR (YELLOW 6, YELLOW 5, RED 40), LACTIC ACID, CITRIC ACID, SUGAR, GARLIC POWDER, SKIM MILK, RED AND GREEN BELL PEPPERS, DISODIUM INOSINATE, AND DISODIUM GUANYLATE.",
+  "nova": 4
+ },
+ {
+  "code": "5449000000996",
+  "name": "Coca-Cola",
+  "brand": "Coca-Cola",
+  "quantity": "330 ml",
+  "image": "/products/5449000000996.jpg",
+  "nutriscore": {
+   "grade": "e",
+   "score": 12
+  },
+  "nutriments": {
+   "added-sugars_100g": 10.9,
+   "carbohydrates_100g": 10.9,
+   "energy-kcal_100g": 44,
+   "energy-kj_100g": 185,
+   "energy_100g": 185,
+   "fat_100g": 0,
+   "fruits-vegetables-legumes-estimate-from-ingredients_100g": 0,
+   "fruits-vegetables-nuts-estimate-from-ingredients_100g": 0,
+   "nova-group_100g": 4,
+   "proteins_100g": 0,
+   "salt_100g": 0,
+   "saturated-fat_100g": 0,
+   "sodium_100g": 0,
+   "sugars_100g": 10.9
+  },
+  "additiveTags": [
+   "en:e150d",
+   "en:e338"
+  ],
+  "labels": [
+   "en:made-in-the-eu",
+   "fr:triman"
+  ],
+  "categories": [
+   "en:beverages-and-beverages-preparations",
+   "en:beverages",
+   "en:non-alcoholic-beverages",
+   "en:soft-drinks",
+   "en:carbonated-drinks",
+   "en:flavoured-soft-drinks",
+   "en:sodas",
+   "en:colas",
+   "pt:bebidas cafeína"
+  ],
+  "ingredients": "carbonated water, sugar, colour (caramel e150d), acid (phosphoric acid), natural flavourings, caffeine flavouring,",
+  "nova": 4
+ },
+ {
+  "code": "3017620422003",
+  "name": "Nutella",
+  "brand": "Ferrero",
+  "quantity": "400 g e",
+  "image": "/products/3017620422003.jpg",
+  "nutriscore": {
+   "grade": "e",
+   "score": 31
+  },
+  "nutriments": {
+   "added-sugars_100g": 52.13,
+   "carbohydrates_100g": 57.5,
+   "energy-kcal_100g": 539,
+   "energy-kj_100g": 2252,
+   "energy_100g": 2252,
+   "fat_100g": 30.9,
+   "fiber_100g": 0,
+   "fruits-vegetables-legumes-estimate-from-ingredients_100g": 0,
+   "fruits-vegetables-nuts-estimate-from-ingredients_100g": 0,
+   "nova-group_100g": 4,
+   "proteins_100g": 6.3,
+   "salt_100g": 0.107,
+   "saturated-fat_100g": 10.6,
+   "sodium_100g": 0.0428,
+   "sugars_100g": 56.3
+  },
+  "additiveTags": [],
+  "labels": [
+   "en:vegetarian",
+   "en:no-gluten",
+   "fr:triman"
+  ],
+  "categories": [
+   "en:breakfasts",
+   "en:spreads",
+   "en:sweet-spreads",
+   "fr:pates-a-tartiner",
+   "en:chocolate-spreads",
+   "en:hazelnut-spreads",
+   "en:cocoa-and-hazelnuts-spreads",
+   "en:confectionary-based-spreads"
+  ],
+  "ingredients": "sugar, palm oil",
+  "nova": 3
+ },
+ {
+  "code": "0038000138416",
+  "name": "Original Potato Crisps",
+  "brand": "Pringles",
+  "quantity": "5.2 oz",
+  "image": "/products/0038000138416.jpg",
+  "nutriscore": {
+   "grade": "e",
+   "score": 19
+  },
+  "nutriments": {
+   "added-sugars_100g": 0,
+   "calcium_100g": 0,
+   "carbohydrates-total_100g": 56.4393805777982,
+   "carbohydrates_100g": 57,
+   "cholesterol_100g": 0,
+   "energy-kcal_100g": 536,
+   "energy-kj_100g": 2244.5,
+   "energy_100g": 2244.5,
+   "fat_100g": 32,
+   "fiber_100g": 4,
+   "fruits-vegetables-legumes-estimate-from-ingredients_100g": 0,
+   "fruits-vegetables-nuts-estimate-from-ingredients_100g": 0,
+   "iron_100g": 0.000352746128611238,
+   "nova-group_100g": 4,
+   "potassium_100g": 0.388020741472362,
+   "proteins_100g": 3.5,
+   "salt_100g": 1.34,
+   "saturated-fat_100g": 9,
+   "sodium_100g": 0.536,
+   "sugars_100g": 1,
+   "trans-fat_100g": 0.5,
+   "vitamin-d_100g": 0
+  },
+  "additiveTags": [
+   "en:e471"
+  ],
+  "labels": [
+   "en:kosher",
+   "en:contains-gmos",
+   "en:orthodox-union-kosher"
+  ],
+  "categories": [
+   "en:plant-based-foods-and-beverages",
+   "en:plant-based-foods",
+   "en:snacks",
+   "en:cereals-and-potatoes",
+   "en:salty-snacks",
+   "en:appetizers",
+   "en:chips-and-fries",
+   "en:potatoes-and-their-products",
+   "en:crisps",
+   "en:salty-snacks-made-from-potato",
+   "en:stacked-extruded-potato-crisps"
+  ],
+  "ingredients": "DRIED POTATOES, VEGETABLE OIL (CORN, COTTONSEED, HIGH OLEIC SOYBEAN, SUNFLOWER OIL), DEGERMINATED YELLOW CORN FLOUR, CORNSTARCH, RICE FLOUR, MALTODEXTRIN, MONO -  AND DIGLYCERIDES, SALT, WHEAT STARCH.",
+  "nova": 4
+ },
+ {
+  "code": "0039978003645",
+  "name": "Honey Oat Granola",
+  "brand": "Bob's Red Mill",
+  "quantity": "50 g",
+  "image": "/products/0039978003645.jpg",
+  "nutriscore": {
+   "grade": "c",
+   "score": 8
+  },
+  "nutriments": {
+   "added-sugars_100g": 19.6969696969697,
+   "calcium_100g": 0.0378787878787879,
+   "carbohydrates_100g": 75.7575757575758,
+   "cholesterol_100g": 0,
+   "energy-kcal_100g": 409.090909090909,
+   "energy_100g": 1711,
+   "fat_100g": 7.57575757575758,
+   "fiber_100g": 7.57575757575758,
+   "iron_100g": 0.00287878787878788,
+   "nova-group_100g": 3,
+   "potassium_100g": 0.306060606060606,
+   "proteins_100g": 7.57575757575758,
+   "salt_100g": 0.321969696969697,
+   "saturated-fat_100g": 1.51515151515152,
+   "sodium_100g": 0.128787878787879,
+   "sugars_100g": 21.2121212121212,
+   "trans-fat_100g": 0,
+   "vitamin-d_100g": 0
+  },
+  "additiveTags": [],
+  "labels": [
+   "en:no-gluten",
+   "en:kosher",
+   "en:certified-gluten-free",
+   "en:kosher-check",
+   "en:whole-grain"
+  ],
+  "categories": [
+   "en:undefined"
+  ],
+  "ingredients": "WHOLE GRAIN ROLLED OATS, BROWN SUGAR, EXPELLER PRESSED CANOLA OIL, BROWN RICE, HONEY, BROWN RICE SYRUP, PURE VANILLA EXTRACT, SEA SALT, VITAMIN E.",
+  "nova": 3
+ },
+ {
+  "code": "0039978013873",
+  "name": "Old Fashioned Rolled Oats",
+  "brand": "Bob's Red Mill",
+  "quantity": "32 oz",
+  "image": "/products/0039978013873.jpg",
+  "nutriscore": {
+   "grade": "a",
+   "score": -4
+  },
+  "nutriments": {
+   "added-sugars_100g": 0,
+   "calcium_100g": 0.0291666666666667,
+   "carbohydrates_100g": 68.75,
+   "cholesterol_100g": 0,
+   "energy-kcal_100g": 395.833333333333,
+   "energy-kj_100g": 1695.83333333333,
+   "energy_100g": 1695.83333333333,
+   "fat_100g": 6.25,
+   "fiber_100g": 10.4166666666667,
+   "fruits-vegetables-legumes-estimate-from-ingredients_100g": 0,
+   "fruits-vegetables-nuts-estimate-from-ingredients_100g": 0,
+   "iron_100g": 0.00416666666666667,
+   "nova-group_100g": 1,
+   "potassium_100g": 0.372916666666667,
+   "proteins_100g": 12.5,
+   "salt_100g": 0,
+   "saturated-fat_100g": 1.04166666666667,
+   "sodium_100g": 0,
+   "sugars_100g": 2.08333333333333,
+   "trans-fat_100g": 0,
+   "vitamin-d_100g": 0
+  },
+  "additiveTags": [],
+  "labels": [
+   "en:no-gluten",
+   "en:organic",
+   "en:kosher",
+   "en:no-gmos",
+   "en:usda-organic",
+   "en:kosher-parve",
+   "en:non-gmo-project"
+  ],
+  "categories": [
+   "en:plant-based-foods-and-beverages",
+   "en:plant-based-foods",
+   "en:breakfasts",
+   "en:cereals-and-potatoes",
+   "en:cereals-and-their-products",
+   "en:breakfast-cereals",
+   "en:flakes",
+   "en:cereal-flakes",
+   "en:rolled-flakes",
+   "en:rolled-oats"
+  ],
+  "ingredients": "Organic whole grain oats.",
+  "nova": 1
+ }
+]

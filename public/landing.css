@@ -1,0 +1,167 @@
+/* Peel landing: page CSS only (the taste kit's system.css, layout.css, cards.css and motion.css do the rest).
+   What lives here: the drawn Peel windows (the hero's product, the app-frame, the additive card, the take), the score
+   ring and dots, and the score cards' small panels. The four score colours are the app's own (app/globals.css). */
+
+:root { --s-excellent: #0b7a3e; --s-good: #5aa832; --s-poor: #e07a12; --s-bad: #d23a2a; --s-none: #b5b5b5; }
+[data-band="excellent"] { --c: var(--s-excellent); } [data-band="good"] { --c: var(--s-good); }
+[data-band="poor"] { --c: var(--s-poor); } [data-band="bad"] { --c: var(--s-bad); }
+[data-risk="none"] { --c: var(--s-excellent); } [data-risk="limited"] { --c: var(--s-good); }
+[data-risk="moderate"] { --c: var(--s-poor); } [data-risk="high"] { --c: var(--s-bad); }
+.pl-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--c, var(--s-none)); flex: none; }
+
+/* the mark: the dealt "initial", a P on the action blue */
+.pl-mark { display: inline-grid; place-items: center; width: 28px; height: 28px; margin-right: 8px; border-radius: 9px; background: var(--action); color: var(--action-ink); font: 700 16px/1 var(--font-display); letter-spacing: 0; }
+
+/* the drawn app: white cards on the lit sky ground, the app's own type */
+.pl-win, .pl-note, .pl-card, .pl-list, .pl-open { font-family: var(--font-text); color: #111; font-feature-settings: normal; }
+.pl-ring { position: relative; display: inline-grid; place-items: center; flex: none; vertical-align: middle; }
+.pl-ring svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pl-ring b { position: relative; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; line-height: 1; }
+.pl-shot { display: block; flex: none; width: 48px; height: 48px; object-fit: contain; background: #fff; border: 1px solid #ececec; border-radius: 10px; padding: 3px; }
+.pl-shot--lg { width: 72px; height: 72px; border-radius: 12px; }
+.pl-prod { display: flex; align-items: center; gap: 14px; }
+.pl-prod > div { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; line-height: 1.3; }
+.pl-prod b { font-weight: 500; font-size: 20px; letter-spacing: -0.02em; }
+.pl-prod span { font-size: 14px; color: #666; display: flex; align-items: center; gap: 6px; }
+.pl-prod--sm b { font-size: 16px; }
+.pl-verdict { display: flex; align-items: center; gap: 18px; }
+.pl-band { margin: 0; display: flex; align-items: center; gap: 8px; font-size: 22px; font-weight: 500; }
+.pl-band .pl-dot { width: 12px; height: 12px; }
+.pl-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.pl-chips span { padding: 5px 11px; border-radius: 99px; background: #f2f2f2; font-size: 13px; }
+.pl-adds__head { margin: 0 0 4px; font-size: 15px; font-weight: 500; } .pl-adds__head span { color: #777; font-weight: 400; }
+.pl-adds__head--gap { margin-top: 18px; }
+.pl-add { display: grid; grid-template-columns: 10px minmax(0, 1fr) auto; align-items: center; column-gap: 12px; padding: 10px 0; border-top: 1px solid #eee; font-size: 15px; }
+.pl-add code { font: 400 13px/1 var(--font-mono); }
+.pl-add__risk { font-size: 13px; color: #6b6b6b; }
+.pl-add > p { grid-column: 2 / -1; margin: 6px 0 0; font-size: 14px; line-height: 1.5; color: #555; }
+
+/* the hero's window: Peel open on a product (layout.css places it; this is its inside) */
+.hero__art { background:
+    radial-gradient(70% 60% at 18% 12%, color-mix(in oklab, var(--ground-surface) 80%, white), transparent 70%),
+    radial-gradient(60% 50% at 90% 100%, color-mix(in oklab, var(--ground-bg) 80%, var(--ground-accent)), transparent 70%),
+    var(--ground-bg); }
+.pl-win { background: #fff; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column;
+  box-shadow: 0 0 0 1px rgb(17 17 17 / .06), 0 40px 80px -36px rgb(17 30 60 / .45); }
+.hero__art > .pl-win { height: calc(100% - var(--s-8) + var(--ly-cut)); }
+.pl-win__bar { display: flex; align-items: center; justify-content: space-between; padding: 12px var(--ly-cut-room, 48px) 12px 18px; border-bottom: 1px solid #eee; }
+.pl-win__logo { display: inline-flex; align-items: center; font-weight: 600; font-size: 16px; }
+.pl-win__logo .pl-mark { width: 24px; height: 24px; border-radius: 8px; font-size: 14px; }
+.pl-win__link { font-size: 14px; color: #555; }
+.pl-pill { display: inline-flex; align-items: center; gap: 7px; height: 32px; padding: 0 13px; border-radius: 99px; border: 1px solid #e3e3e3; font-size: 13px; }
+.pl-pill i { width: 7px; height: 7px; border-radius: 50%; background: var(--action); }
+.pl-win__body { display: grid; gap: 22px; align-content: start; padding: 22px var(--ly-cut-room, 48px) 18px 22px; }
+@media (max-width: 1023px) { .hero__art > .pl-win { height: calc(100% - var(--s-6) + var(--ly-cut)); } }
+@media (max-width: 639px) {
+  .hero__art > .pl-win { height: calc(100% - var(--s-4) + var(--ly-cut)); }
+  .pl-win__body { gap: 14px; padding: 16px; } .pl-win .pl-adds, .pl-win .pl-chips, .pl-pill { display: none; }
+  .pl-win .pl-ring { width: 64px !important; height: 64px !important; } .pl-win .pl-ring b { font-size: 21px !important; }
+  .pl-win .pl-shot--lg { width: 52px; height: 52px; } .pl-win .pl-prod b { font-size: 17px; }
+}
+
+/* the small card: a better swap found on the same shelf (layout.js runs its steps) */
+.hero__art > .ly-piece--note { left: var(--s-6); bottom: var(--s-6); width: 300px; z-index: 2; }
+.pl-note { display: grid; gap: 10px; padding: 14px 16px 16px; border-radius: 16px; background: #fff; font-size: 14px;
+  box-shadow: 0 0 0 1px rgb(17 17 17 / .07), 0 24px 48px -20px rgb(17 30 60 / .45); }
+.pl-note__head { display: flex; align-items: center; justify-content: space-between; } .pl-note__head b { font-weight: 500; font-size: 15px; }
+.pl-chip { display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border-radius: 99px; background: #e6f3ec; color: #0b6a36; font-size: 12px; font-weight: 500; }
+.pl-note__row { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 10px; padding-top: 10px; border-top: 1px solid #eee; }
+.pl-note__row .pl-shot { width: 44px; height: 44px; }
+.pl-note__row div { display: grid; line-height: 1.3; min-width: 0; } .pl-note__row b { font-weight: 500; } .pl-note__row span { color: #6b6b6b; font-size: 13px; }
+.pl-note__row .pl-ring b { font-size: 15px !important; }
+.pl-note__line { display: flex; align-items: center; gap: 8px; padding-top: 10px; border-top: 1px solid #eee; }
+@media (max-width: 1023px) { .hero__art > .ly-piece--note { left: var(--s-4); bottom: var(--s-4); width: 270px; } }
+.hero__proof { font-size: var(--t-small); color: color-mix(in oklab, var(--ink) 74%, var(--bg)); }
+.hero__art button.loop-pause:focus-visible { outline: 2px solid #111; outline-offset: 2px; }
+
+/* the nav's picture card: the granola and its score on the lit ground */
+.pl-menu-panel { --p-h: 160px; display: flex; align-items: center; justify-content: center; gap: 18px; background: var(--ground-bg, #eef3fb); }
+.pl-menu-panel .pl-shot { width: 96px; height: 96px; }
+.pl-menu-panel .pl-ring b { font-size: 20px !important; }
+
+/* the app-frame (sections-library.md, app-frame) */
+.app.ui { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); margin-top: var(--s-7); background: #fff; border: 1px solid #e6e6e6; border-radius: var(--r-lg); box-shadow: 0 1px 2px rgb(17 17 17 / .04), 0 24px 60px -30px rgb(17 30 60 / .25); }
+.app > .app__pane { position: relative; min-width: 0; min-height: 0; overflow: hidden; }
+.app > .app__pane + .app__pane { border-left: 1px solid #eee; }
+.app > .app__pane { -webkit-mask: linear-gradient(to bottom, #000 calc(100% - 64px), transparent calc(100% - 4px)); mask: linear-gradient(to bottom, #000 calc(100% - 64px), transparent calc(100% - 4px)); }
+.pl-app { height: 440px; }
+@media (min-width: 1024px) and (max-width: 1279px) { .app.ui { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); } }
+@media (max-width: 1023px) {
+  .app.ui { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
+  .pl-app { height: 640px; }
+  .app > .app__pane--list { max-height: 232px; -webkit-mask: none; mask: none; }
+  .app > .app__pane + .app__pane { border-left: 0; border-top: 1px solid #eee; }
+}
+@media (max-width: 639px) {
+  .pl-app { height: 400px; }
+  .app.ui { grid-template-rows: minmax(0, 1fr); }
+  .app > .app__pane--list { display: none; }
+  .app > .app__pane + .app__pane { border-top: 0; }
+}
+.pl-list { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; padding: 10px; }
+.pl-list__head { display: flex; align-items: baseline; justify-content: space-between; padding: 8px 10px 10px; font-size: 13px; color: #777; }
+.pl-list__head b { font-size: 15px; font-weight: 500; color: #111; }
+.pl-row { display: grid; grid-template-columns: 48px minmax(0, 1fr) 40px; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 12px; }
+.pl-row.is-on { background: #f3f5fb; }
+.pl-row .pl-ring b { font-size: 13px !important; }
+.pl-row__text { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; line-height: 1.35; }
+.pl-row__text b { font-weight: 500; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pl-row__text span { font-size: 13px; color: #777; }
+.pl-open { display: grid; gap: 20px; align-content: start; padding: 24px 28px; }
+.pl-parts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; padding-top: 16px; border-top: 1px solid #eee; }
+.pl-parts div { display: grid; gap: 4px; font-size: 13px; color: #6b6b6b; }
+.pl-parts b { font-size: 18px; font-weight: 500; color: #111; } .pl-parts i { font-style: normal; color: #888; font-size: 13px; }
+.pl-parts em { display: block; height: 5px; border-radius: 9px; background: linear-gradient(#111, #111) 0 0 / var(--v) 100% no-repeat, #eee; }
+@media (max-width: 639px) { .pl-open { padding: 18px; gap: 16px; } .pl-open .pl-chips { display: none; } }
+
+/* the additives and the take: one white card each */
+.pl-split { align-items: start; }
+.pl-card { padding: 22px 24px; background: #fff; border-radius: var(--r-lg); box-shadow: 0 0 0 1px rgb(17 17 17 / .06), 0 24px 56px -30px rgb(17 30 60 / .35); }
+.pl-addcard .pl-prod { margin-bottom: 10px; }
+.pl-legend { display: flex; flex-wrap: wrap; gap: 10px 18px; font-size: var(--t-small); }
+.pl-legend > span { display: inline-flex; align-items: center; gap: 8px; }
+.pl-take { display: block; max-width: 460px; }
+.pl-take > div { display: grid; gap: 12px; font-size: 16px; line-height: 1.55; }
+.pl-take p { margin: 0; } .pl-take strong { font-weight: 600; }
+.pl-take .pl-prod { margin-bottom: 4px; }
+.pl-ask { display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 6px 0 16px; border: 1px solid #e3e3e3; border-radius: 99px; font-size: 14px; color: #777; }
+.pl-ask i { font-style: normal; padding: 7px 14px; border-radius: 99px; background: #f2f2f2; color: #111; font-weight: 500; }
+.pl-takewrap { display: grid; place-items: center; padding: var(--s-8) var(--s-6); border-radius: var(--r-lg); background:
+    radial-gradient(70% 60% at 18% 12%, color-mix(in oklab, var(--ground-surface) 80%, white), transparent 70%),
+    radial-gradient(60% 50% at 90% 100%, color-mix(in oklab, var(--ground-bg) 80%, var(--ground-accent)), transparent 70%), var(--ground-bg); }
+@media (max-width: 639px) { .pl-takewrap { padding: var(--s-5) var(--s-4); } }
+.pl-modes { display: grid; gap: 0; margin: var(--s-2) 0 0; padding: 0; list-style: none; }
+.pl-modes li { display: grid; gap: 2px; padding: 12px 0; border-top: 1px solid var(--line); }
+.pl-modes b { font-weight: 500; } .pl-modes span { font-size: var(--t-small); color: var(--muted); }
+
+/* the score cards' panels */
+.pl-panel { --p-h: 168px; display: grid; place-items: center; background:
+    radial-gradient(80% 70% at 20% 0%, color-mix(in oklab, var(--ground-surface) 80%, white), transparent 70%), var(--ground-bg); }
+.pl-grades { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; max-width: 280px; }
+.pl-grades span { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; color: #fff; font: 600 18px/1 var(--font-text); opacity: .4; }
+.pl-grades span.is-on { opacity: 1; transform: scale(1.12); box-shadow: 0 6px 16px -6px rgb(0 0 0 / .4); }
+.pl-grades [data-g="a"] { background: #0b7a3e; } .pl-grades [data-g="b"] { background: #5aa832; } .pl-grades [data-g="c"] { background: #c9a400; }
+.pl-grades [data-g="d"] { background: #e07a12; } .pl-grades [data-g="e"] { background: #d23a2a; }
+.pl-grades p { width: 100%; margin: 10px 0 0; text-align: center; font-size: 13px; color: #333; }
+.pl-sum { width: min(260px, 84%); padding: 14px 16px; background: #fff; border-radius: 14px; box-shadow: 0 0 0 1px rgb(17 17 17 / .06), 0 12px 28px -18px rgb(17 30 60 / .4); font-size: 14px; }
+.pl-sum p { display: flex; justify-content: space-between; margin: 0; padding: 6px 0; } .pl-sum b { font-weight: 500; color: #b02a1c; }
+.pl-sum .is-total { border-top: 1px solid #eee; margin-top: 4px; padding-top: 10px; } .pl-sum .is-total b { color: #111; }
+.pl-org { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #fff; border-radius: 14px; box-shadow: 0 0 0 1px rgb(17 17 17 / .06), 0 12px 28px -18px rgb(17 30 60 / .4); }
+.pl-org div { display: grid; line-height: 1.35; } .pl-org b { font-weight: 500; } .pl-org span { font-size: 13px; color: #6b6b6b; }
+.pl-org .pl-ring b { font-size: 18px !important; }
+
+/* the questions' shelf of scanned products */
+.pl-shelf { display: flex; flex-wrap: wrap; gap: 10px; }
+.pl-shelf .pl-shot { width: 64px; height: 64px; border-radius: 14px; }
+.pl-legal { display: inline-flex; flex-wrap: wrap; gap: 6px 16px; }
+@media (max-width: 639px) { .pl-more { display: none; } .pl-take > div { font-size: 15px; } .pl-shelf .pl-shot { width: 52px; height: 52px; } }
+@media (max-width: 639px) { .pl-app { height: auto; } .app > .app__pane { -webkit-mask: none; mask: none; } .pl-open .pl-nut .pl-add:nth-of-type(n+4) { display: none; } }
+/* a phone holds the three score cards on one screen: the Nutri-Score panel stays, the other two cards keep their words */
+@media (max-width: 639px) { #score h2 .muted { display: none; } .pl-parts3 > .card:not(:first-child) > .panel { display: none; } .pl-parts3 .panel { --p-h: 128px; } }
+/* from 1024 to 1439 the frame is shorter: a smaller verdict keeps the score above the swap card */
+@media (min-width: 640px) and (max-width: 1439px) {
+  .pl-win__body { gap: 14px; padding-top: 16px; }
+  .pl-win .pl-verdict .pl-ring { width: 76px !important; height: 76px !important; } .pl-win .pl-verdict .pl-ring b { font-size: 25px !important; }
+  .pl-win .pl-shot--lg { width: 56px; height: 56px; } .pl-win .pl-prod b { font-size: 18px; }
+  .pl-win .pl-chips { margin-top: 6px; }
+}

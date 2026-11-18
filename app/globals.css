@@ -24,3 +24,40 @@ body { margin: 0; font-family: var(--font-body); min-height: 100dvh; }
 /* text-wrap-style only: the text-wrap shorthand would also set the wrap mode and beat Tailwind's `truncate` */
 h1, h2, h3 { font-family: var(--font-display); letter-spacing: var(--tracking-display); text-wrap-style: balance; }
 p { text-wrap-style: pretty; }
+
+/* ---------- Peel: the paper theme re-toned to the dealt palette (DESIGN.md): white sheet, ink, one biro blue ---------- */
+:root {
+  --bg: #ffffff; --bg-2: #f4f4f4; --card: #ffffff; --fg: #111111; --muted: #636363; --line: #e3e3e3;
+  --accent: #1a4be0; --accent-fg: #ffffff;
+  --font-display: var(--font-sans), system-ui, sans-serif; --tracking-display: -0.03em;
+  --radius: 18px; --radius-sm: 12px;
+  --shadow-1: 0 1px 2px rgb(17 17 17 / .05);
+  --shadow-2: 0 1px 2px rgb(17 17 17 / .04), 0 8px 24px rgb(17 17 17 / .06);
+  --shadow-3: 0 2px 4px rgb(17 17 17 / .04), 0 18px 48px rgb(17 17 17 / .12);
+  /* the score's four bands: colour for rings and dots; the words beside them stay ink */
+  --s-excellent: #0b7a3e; --s-good: #5aa832; --s-poor: #e07a12; --s-bad: #d23a2a; --s-none: #b5b5b5;
+}
+h1, h2, h3 { font-weight: 500; }
+.pl-num { font-variant-numeric: tabular-nums; }
+.pl-dot { display: inline-block; width: .7em; height: .7em; border-radius: 99px; background: var(--c, var(--s-none)); flex: none; }
+[data-band="excellent"] { --c: var(--s-excellent); } [data-band="good"] { --c: var(--s-good); }
+[data-band="poor"] { --c: var(--s-poor); } [data-band="bad"] { --c: var(--s-bad); }
+[data-risk="none"] { --c: var(--s-excellent); } [data-risk="limited"] { --c: var(--s-good); }
+[data-risk="moderate"] { --c: var(--s-poor); } [data-risk="high"] { --c: var(--s-bad); } [data-risk="unrated"] { --c: var(--s-none); }
+
+/* the score ring draws once when a product opens (a rare moment, so it gets the motion) */
+.pl-ring circle.pl-arc { transition: stroke-dashoffset 640ms var(--ease-out); }
+@media (prefers-reduced-motion: reduce) { .pl-ring circle.pl-arc { transition: none; } }
+
+/* the viewfinder's scan line: a spinner-like loop, so linear is allowed */
+.pl-scanline { position: absolute; left: 12%; right: 12%; height: 2px; background: var(--accent); box-shadow: 0 0 16px 2px color-mix(in oklab, var(--accent) 60%, transparent); animation: pl-scan 2.2s var(--ease-in-out) infinite alternate; }
+@keyframes pl-scan { from { top: 22%; } to { top: 78%; } }
+@media (prefers-reduced-motion: reduce) { .pl-scanline { animation: none; top: 50%; } }
+.pl-corner { position: absolute; width: 34px; height: 34px; border: 0 solid #fff; }
+.pl-tl { left: 0; top: 0; border-top-width: 3px; border-left-width: 3px; border-top-left-radius: 14px; }
+.pl-tr { right: 0; top: 0; border-top-width: 3px; border-right-width: 3px; border-top-right-radius: 14px; }
+.pl-bl { left: 0; bottom: 0; border-bottom-width: 3px; border-left-width: 3px; border-bottom-left-radius: 14px; }
+.pl-br { right: 0; bottom: 0; border-bottom-width: 3px; border-right-width: 3px; border-bottom-right-radius: 14px; }
+.pl-row-btn { transition: background var(--dur-1) var(--ease-out); }
+.pl-row-btn:hover { background: var(--bg-2); }
+.pl-take strong { font-weight: 600; }
