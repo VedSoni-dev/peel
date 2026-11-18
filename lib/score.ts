@@ -41,7 +41,9 @@ export function bandFor(score: number): Band {
   return score >= 75 ? "excellent" : score >= 50 ? "good" : score >= 25 ? "poor" : "bad";
 }
 
-const isDrink = (p: Product) => p.categories.some((c) => c === "en:beverages" || c === "en:sodas" || c.endsWith("-beverages") || c === "en:waters");
+// Exact categories only: "en:plant-based-foods-and-beverages" sits on cereals and crisps too, so a suffix match is wrong.
+const DRINKS = new Set(["en:beverages", "en:sodas", "en:waters", "en:carbonated-drinks", "en:fruit-juices", "en:juices-and-nectars", "en:teas", "en:coffees", "en:energy-drinks"]);
+const isDrink = (p: Product) => p.categories.some((c) => DRINKS.has(c));
 const isOrganic = (p: Product) => p.labels.some((l) => /(^|:)(organic|eu-organic|usda-organic|bio|ab-agriculture-biologique|fr-bio-01)$/.test(l) || l.endsWith(":organic"));
 
 /** Straight lines between known points: the Nutri-Score number → nutrition points out of 60. */

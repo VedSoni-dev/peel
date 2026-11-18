@@ -136,7 +136,7 @@ export function landingHTML(): string {
         <div class="btn-row"><a class="btn btn--primary" href="/app">Scan a product${ARROW}</a><a class="btn btn--secondary" href="${app.repo}">Get the code</a></div>
         <p class="hero__proof">Yuka Premium costs $15 a year. Peel is free, with no account.</p>
       </div>
-      <div class="hero__art span-6 start-7" role="img" aria-label="Peel open on Doritos Nacho Cheese: 18 out of 100, Bad, with three colours to watch; a swap card finds Late July tortilla chips at 82">
+      <div class="hero__art span-6 start-7" role="img" aria-label="Peel open on Doritos Nacho Cheese: 18 out of 100, Bad, with three colours to watch; a swap card finds Late July tortilla chips at 80">
         <div class="ly-piece ly-piece--main pl-win" aria-hidden="true">
           <div class="pl-win__bar"><span class="pl-win__logo"><span class="pl-mark">P</span>Peel</span><span class="pl-win__link">Your scans</span></div>
           <div class="pl-win__body">
@@ -146,9 +146,9 @@ export function landingHTML(): string {
           </div>
         </div>
         <div class="ly-piece ly-piece--note pl-note" aria-hidden="true" data-ly-steps="700">
-          <div class="pl-note__head"><b>Better swap</b><span class="pl-chip" data-step data-step-at="4">+64 points</span></div>
+          <div class="pl-note__head"><b>Better swap</b><span class="pl-chip" data-step data-step-at="4">+62 points</span></div>
           <div class="pl-note__row" data-step><img class="pl-shot" src="/products/0815099021634.jpg" alt="" width="44" height="44" data-source="client" data-subject="Late July tortilla chips, a product in Open Food Facts">
-            <div><b>Late July Thin &amp; Crispy</b><span>Tortilla chips · same shelf</span></div>${ring(82, "excellent", 44)}</div>
+            <div><b>Late July Thin &amp; Crispy</b><span>Tortilla chips · same shelf</span></div>${ring(80, "excellent", 44)}</div>
           <div class="pl-note__line" data-step><span class="pl-dot" data-risk="none"></span>No additives, organic</div>
         </div>
       </div>
@@ -228,7 +228,7 @@ export function landingHTML(): string {
         <article class="card span-4">
           <h3>Organic, 10 points</h3>
           <p>Ten points for a USDA, EU or other official organic label on the pack. Nothing for the word alone.</p>
-          <div class="panel panel--inset pl-panel" role="img" aria-label="Bob's Red Mill Old Fashioned Rolled Oats, organic, 100 out of 100"><div class="pl-org" aria-hidden="true">${img(byCode("0039978013873"), "pl-shot--lg")}<div><b>Rolled oats</b><span>Organic label: 10 of 10</span></div>${ring(100, "excellent", 56)}</div></div>
+          <div class="panel panel--inset pl-panel" role="img" aria-label="Bob's Red Mill Old Fashioned Rolled Oats, organic, ${scoreProduct(byCode("0039978013873")).score} out of 100"><div class="pl-org" aria-hidden="true">${img(byCode("0039978013873"), "pl-shot--lg")}<div><b>Rolled oats</b><span>Organic label: 10 of 10</span></div>${ring(scoreProduct(byCode("0039978013873")).score!, "excellent", 56)}</div></div>
         </article>
       </div>
     </div>

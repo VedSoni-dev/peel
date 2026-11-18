@@ -40,9 +40,9 @@ export function ProductView({ data, onOpen }: { data: Loaded; onOpen: (code: str
   const { product: p, scored: s } = data;
   const per = s.drink ? "100 ml" : "100 g";
   return (
-    <div className="sk-stagger grid gap-5 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start">
+    <div className="sk-stagger grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start">
       {/* left: what it is and how it scores */}
-      <section className="rounded-[var(--radius)] border border-line bg-card p-5 shadow-[var(--shadow-1)] sm:p-6 lg:sticky lg:top-20">
+      <section className="min-w-0 rounded-[var(--radius)] border border-line bg-card p-5 shadow-[var(--shadow-1)] sm:p-6 lg:sticky lg:top-20">
         <div className="flex gap-4">
           <div className="grid size-24 shrink-0 place-items-center overflow-hidden rounded-[var(--radius-sm)] border border-line bg-white sm:size-28">
             {p.image ? <img src={p.image} alt={p.name} className="h-full w-full object-contain p-1.5" /> : <span className="text-xs text-muted">No photo</span>}
@@ -71,10 +71,10 @@ export function ProductView({ data, onOpen }: { data: Loaded; onOpen: (code: str
       </section>
 
       {/* right: the detail */}
-      <div className="grid gap-5">
+      <div className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-5">
         <Take product={p} />
 
-        <section className="rounded-[var(--radius)] border border-line bg-card p-5 shadow-[var(--shadow-1)] sm:p-6">
+        <section className="min-w-0 rounded-[var(--radius)] border border-line bg-card p-5 shadow-[var(--shadow-1)] sm:p-6">
           <h2 className="text-lg">Nutrition <span className="text-muted">per {per}</span></h2>
           {s.nutrients.length ? (
             <ul className="mt-3 divide-y divide-line">
@@ -90,7 +90,7 @@ export function ProductView({ data, onOpen }: { data: Loaded; onOpen: (code: str
           ) : <p className="mt-2 text-muted">No nutrition facts listed for this product.</p>}
         </section>
 
-        <section className="rounded-[var(--radius)] border border-line bg-card p-5 shadow-[var(--shadow-1)] sm:p-6">
+        <section className="min-w-0 rounded-[var(--radius)] border border-line bg-card p-5 shadow-[var(--shadow-1)] sm:p-6">
           <h2 className="text-lg">Additives <span className="text-muted">{s.additives.length || "none"}</span></h2>
           {s.additives.length ? (
             <ul className="mt-3 divide-y divide-line">
@@ -129,7 +129,7 @@ function Take({ product }: { product: Product }) {
   const lines = ai.text.split("\n").map((l) => l.trim()).filter(Boolean);
 
   return (
-    <section className="rounded-[var(--radius)] border border-line bg-card p-5 shadow-[var(--shadow-1)] sm:p-6">
+    <section className="min-w-0 rounded-[var(--radius)] border border-line bg-card p-5 shadow-[var(--shadow-1)] sm:p-6">
       <div className="flex items-center justify-between gap-3">
         <h2 className="text-lg">Peel&apos;s take</h2>
         {!ai.text && !ai.busy && <button type="button" className="sk-btn" onClick={() => go()}>Get Peel&apos;s take</button>}
@@ -169,13 +169,13 @@ function Swaps({ code, onOpen }: { code: string; onOpen: (code: string) => void 
   }, [code]);
   const { swaps, error } = state;
   return (
-    <section className="rounded-[var(--radius)] border border-line bg-card p-5 shadow-[var(--shadow-1)] sm:p-6">
+    <section className="min-w-0 rounded-[var(--radius)] border border-line bg-card p-5 shadow-[var(--shadow-1)] sm:p-6">
       <h2 className="text-lg">Better swaps</h2>
       <p className="mt-1 text-muted">From the same shelf, scoring higher.</p>
       {swaps === null ? (
         <ul className="mt-3 grid gap-2" aria-label="Loading swaps">{[0, 1, 2].map((i) => <li key={i} className="h-16 animate-pulse rounded-[var(--radius-sm)] bg-bg-2" />)}</ul>
       ) : swaps.length ? (
-        <ul className="mt-3 grid gap-1">
+        <ul className="mt-3 flex flex-col gap-1">
           {swaps.map(({ product: p, scored: s }) => (
             <li key={p.code}>
               <button type="button" onClick={() => onOpen(p.code)} className="pl-row-btn -mx-2 flex w-[calc(100%+16px)] items-center gap-3 rounded-[12px] px-2 py-2 text-left">
