@@ -28,8 +28,13 @@ Made with the taste skill (tasteskill 2.5.1), 2026-11-17. The score is the produ
 | 2 | `#scans` | the app-frame: six scans with their rings beside Bob's Red Mill granola, 62, Good, its parts and nutrition |
 | 3 | `#additives` | 180 additives rated; Coca-Cola's two with E150d open; nitrite, titanium dioxide, aspartame, lecithins |
 | 4 | `#score` | three cards: Nutrition 60 (Nutri-Score grades), Additives 30 (Doritos' sum), Organic 10 (rolled oats, 94) |
-| 5 | `#take` | Peel's take on Coca-Cola, word for word from llama3.2 in local mode; the modes |
-| 6 | `#questions` | four questions; the six sample products |
-| 7 | footer | Scan a product; links; Open Food Facts credit; "Inspired by Yuka. Not affiliated with it." |
+| 5 | `#questions` | four questions; the six sample products |
+| 6 | footer | Scan a product; links; Open Food Facts credit; "Inspired by Yuka. Not affiliated with it." |
 
 Every product, score and additive on the page is computed from `lib/samples.json` by the app's own code, at request time.
+
+## 2026-11-20: no AI, Sign in with publik
+
+Vedant: "get rid of ai, just make them use publik to sign in to use it". Peel's take, the AI route and the mode picker
+are gone. `/app` sits behind `components/Gate.tsx` (the kit's `usePublikGate({ usesAi: false })`): a sign-in screen
+in Peel's look, with the six sample products and their real scores beside it. The landing lost its `#take` section.

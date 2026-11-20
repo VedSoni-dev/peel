@@ -1,10 +1,9 @@
 "use client";
 // The app at "/app": scan (or type) a barcode, see the score. /app?code=<barcode> opens a product, so the back button,
-// sharing and swaps all work. Scoring needs no AI; only "Peel's take" asks for a mode.
+// sharing and swaps all work. No AI: the app sits behind Sign in with publik (components/Gate.tsx).
 import Link from "next/link";
 import { Suspense, useCallback, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ModeButton } from "@/kit/react/ModePanel";
 import { Scanner } from "@/components/Scanner";
 import { ProductView, ScoreRing, type Loaded } from "@/components/ProductView";
 import { SAMPLES } from "@/lib/samples";
@@ -23,7 +22,7 @@ export default function AppPage() {
             <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden><circle cx="12" cy="12" r="10" fill="var(--accent)" /><path d="M8 12.5l2.6 2.6L16 9.5" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
             Peel
           </Link>
-          <ModeButton />
+          <a href="https://github.com/VedSoni-dev/peel" target="_blank" rel="noopener noreferrer" className="flex min-h-11 items-center text-sm text-muted hover:text-fg">Open source</a>
         </div>
       </header>
       <main className="mx-auto w-full max-w-6xl flex-1 px-4 pb-28 pt-5 sm:px-6 sm:pt-8 lg:pb-16">

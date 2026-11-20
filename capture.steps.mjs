@@ -6,7 +6,18 @@
 export default async function ({ page, go, click, type, wait, shot, scroll }) {
   // Open Food Facts' photos can take seconds the first time; wait until every picture on screen has drawn.
   const photos = () => page.waitForFunction(() => [...document.images].every((i) => i.complete && i.naturalWidth > 0), null, { timeout: 30000 }).catch(() => {});
+  // /app sits behind Sign in with publik. Capture against the publik mock (see the studio's /studio skill):
+  //   PUBLIK_ORIGIN=http://localhost:3124 PUBLIK_APP_TOKEN=pat_localtest npm run dev
+  // The sign-in screen is shot first, then the mock signs this browser in.
   await go("/app");
+  await wait(1500);
+  if (await page.locator("text=Sign in to start scanning").count()) {
+    await shot("screen-6");
+    const p = await page.evaluate(async () => fetch("/api/studio/publik/provision", { method: "POST", headers: { "content-type": "application/json" }, body: "{}" }).then((r) => r.json()));
+    if (p.claimUrl) await fetch(p.claimUrl);
+    await page.reload();
+    await page.locator("#code").waitFor({ timeout: 30000 });
+  }
   await wait(700);
   await shot("screen-1");
 

@@ -43,14 +43,14 @@ export function landingHTML(): string {
 <meta name="description" content="${esc(description)}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="${title}">
-<meta property="og:description" content="A 0 to 100 score for any grocery barcode: nutrition, additives, organic. Free, no account, MIT licensed.">
+<meta property="og:description" content="A 0 to 100 score for any grocery barcode: nutrition, additives, organic. Free with Sign in with publik, MIT licensed.">
 <meta property="og:url" content="${app.url}/">
 <meta property="og:image" content="${app.url}/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="628">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${title}">
-<meta name="twitter:description" content="A 0 to 100 score for any grocery barcode: nutrition, additives, organic. Free, no account, MIT licensed.">
+<meta name="twitter:description" content="A 0 to 100 score for any grocery barcode: nutrition, additives, organic. Free with Sign in with publik, MIT licensed.">
 <meta name="twitter:image" content="${app.url}/og.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#ffffff">
@@ -95,7 +95,7 @@ export function landingHTML(): string {
            mark initial, palette white-link-blue (taken over oxblood-grey: the score owns red and green, so the page's
            own colour stays a neutral biro blue on white paper), type reddit, radius round, lit ground sky
      effect: none (the hero's own loop is the small swap card); moments: iris-opens on #additives (from base)
-     screens at 1440x900: hero 1 · scans 1 · additives 1 · score 1 · take 1 · questions 1 · footer 1 -->
+     screens at 1440x900: hero 1 · scans 1 · additives 1 · score 1 · questions 1 · footer 1 -->
 <header class="nav">
   <div class="wrap nav__bar">
     <a class="skip-link" href="#top">Skip to content</a>
@@ -106,7 +106,7 @@ export function landingHTML(): string {
         <div class="nav__menu">
           <div class="wrap grid">
             <div class="menu-col span-3"><p class="t-label">Scan</p><a href="#scans">Scores out of 100<span>Nutrition, additives, organic</span></a><a href="#score">How the score adds up<span>60, 30 and 10 points</span></a></div>
-            <div class="menu-col span-3"><p class="t-label">Understand</p><a href="#additives">Additives explained<span>${RATED} E-numbers rated</span></a><a href="#take">Peel's take<span>A plain read by AI</span></a></div>
+            <div class="menu-col span-3"><p class="t-label">Understand</p><a href="#additives">Additives explained<span>${RATED} E-numbers rated</span></a><a href="#questions">Questions<span>Data, privacy, sign-in</span></a></div>
             <a class="menu-card span-4 start-9" href="/app?code=${granola.code}">
               <div class="panel pl-menu-panel">${img(granola)}${ring(gs.score!, gs.band!, 64)}</div>
               <span class="t-card">${esc(granola.name)}</span>
@@ -116,7 +116,7 @@ export function landingHTML(): string {
         </div>
       </div>
       <div class="nav__item"><a class="nav__link" href="#additives">Additives</a></div>
-      <div class="nav__item"><a class="nav__link" href="#take">AI</a></div>
+      <div class="nav__item"><a class="nav__link" href="#score">Score</a></div>
       <div class="nav__item"><a class="nav__link" href="#questions">Questions</a></div>
     </nav>
     <div class="nav__actions">
@@ -134,7 +134,7 @@ export function landingHTML(): string {
         <h1 id="hero-h">Free grocery barcode scanner with health scores</h1>
         <p class="hero__lead">Point your phone at a barcode and Peel scores the food out of 100, names every additive and finds a better pick from the same shelf.</p>
         <div class="btn-row"><a class="btn btn--primary" href="/app">Scan a product${ARROW}</a><a class="btn btn--secondary" href="${app.repo}">Get the code</a></div>
-        <p class="hero__proof">Yuka Premium costs $15 a year. Peel is free, with no account.</p>
+        <p class="hero__proof">Yuka Premium costs $15 a year. Peel is free: sign in with publik and scan.</p>
       </div>
       <div class="hero__art span-6 start-7" role="img" aria-label="Peel open on Doritos Nacho Cheese: 18 out of 100, Bad, with three colours to watch; a swap card finds Late July tortilla chips at 80">
         <div class="ly-piece ly-piece--main pl-win" aria-hidden="true">
@@ -160,7 +160,7 @@ export function landingHTML(): string {
       <div class="grid">
         <h2 id="scans-h" class="span-5">Every scan scored out of 100</h2>
         <div class="span-6 start-7 stack-4">
-          <p class="t-lead">Excellent from 75, good from 50, poor from 25. Your scans stay on your phone, so the history needs no account.</p>
+          <p class="t-lead">Excellent from 75, good from 50, poor from 25. Your scans stay on your phone; nothing about them is uploaded.</p>
           <a class="link" href="/app?code=${granola.code}">Open the granola in Peel</a>
         </div>
       </div>
@@ -234,38 +234,6 @@ export function landingHTML(): string {
     </div>
   </section>
 
-  <section class="section" id="take" aria-labelledby="take-h">
-    <div class="wrap">
-      <div class="grid pl-split">
-        <div class="span-5 stack-6">
-          <h2 id="take-h">Peel&apos;s take, written by your own AI</h2>
-          <p class="t-lead">One tap reads the label for you: a verdict, the one thing to watch and what to buy instead. Ask a follow-up, like whether it suits a child.</p>
-          <ul class="pl-modes">
-            <li><b>Claude API key</b><span>Kept encrypted in this browser</span></li>
-            <li><b>publik</b><span>Sign in and use your plan</span></li>
-            <li><b>Local model or ChatGPT plan</b><span>When Peel runs on your computer</span></li>
-          </ul>
-        </div>
-        <div class="span-6 start-7 pl-takewrap">
-          <div>
-            <div>
-              <div class="pl-card pl-take" role="img" aria-label="Peel's take on Coca-Cola: a rare treat for its sugar; watch the phosphoric acid and the caramel colour; look for a sugar-free alternative">
-                <div aria-hidden="true">
-                  <div class="pl-prod pl-prod--sm">${img(cola)}<div><b>${esc(cola.name)}</b><span>Peel&apos;s take</span></div></div>
-                  <!-- word for word what Peel's take answered for this product on llama3.2 (local mode), 2026-11-17 -->
-                  <p><strong>Verdict:</strong> Rare treat, due to its high sugar content and moderate calorie count.</p>
-                  <p><strong>Watch:</strong> Phosphoric acid (limited risk) and E150D Sulphite ammonia caramel (moderate risk).</p>
-                  <p><strong>Instead:</strong> Look for a sugar-free or low-calorie alternative instead.</p>
-                  <div class="pl-ask"><span>Is it OK for kids?</span><i>Ask</i></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="section" id="questions" aria-labelledby="questions-h">
     <div class="wrap">
       <div class="grid">
@@ -274,7 +242,7 @@ export function landingHTML(): string {
           <div class="pl-shelf">${SAMPLES.map((p) => img(p)).join("")}</div>
         </div>
         <div class="faq span-6 start-7">
-          <div class="faq__item"><h3>Is Peel free?</h3><p>Yes, and MIT licensed. Scores cost nothing. Peel&apos;s take uses your own AI: a key, a publik plan or a local model.</p></div>
+          <div class="faq__item"><h3>Is Peel free?</h3><p>Yes, and MIT licensed. You sign in with publik once; there is no plan to buy and no AI in it.</p></div>
           <div class="faq__item"><h3>Where does the product data come from?</h3><p>Open Food Facts, the open database of food labels that shoppers fill in. A missing product can be added there in two minutes.</p></div>
           <div class="faq__item"><h3>Is it the same score as Yuka?</h3><p>Same split, different maths and a different additive table, so a product can land a few points apart. Peel&apos;s rules are in the code.</p></div>
           <div class="faq__item"><h3>Does the camera upload anything?</h3><p>No. The barcode is read on your phone; only the number goes to Open Food Facts.</p></div>
@@ -289,7 +257,7 @@ export function landingHTML(): string {
     <div class="closing__cta close--type">
       <div class="section-head">
         <h2 id="close-h">Scan the next thing in your cupboard</h2>
-        <p>Free in your phone&apos;s browser. No app store, no account.</p>
+        <p>Free in your phone&apos;s browser. No app store; sign in with publik once.</p>
       </div>
       <a class="btn btn--primary btn--xl btn--wide" href="/app">Scan a product${ARROW}</a>
     </div>

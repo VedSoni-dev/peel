@@ -11,9 +11,9 @@ const config: StudioConfig = {
     url: "https://peel.vedantsoni.com",
     alternativeTo: "Yuka",
   },
-  // Pick the modes that make sense for this build (docs/auth.md). Order = order in the picker. The hosted picker hides ChatGPT plan (local runs only).
-  modes: ["claude","publik","chatgpt","local"],
-  defaultMode: "claude",
+  // No AI in Peel: publik is only the sign-in (components/Gate.tsx), so the picker never shows.
+  modes: ["publik"],
+  defaultMode: "publik",
 };
 
 export default config;

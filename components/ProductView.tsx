@@ -1,7 +1,6 @@
 "use client";
-// One scanned product: the score, why, the nutrients, each additive, Peel's take (AI) and healthier swaps.
+// One scanned product: the score, why, the nutrients, each additive and healthier swaps.
 import { useEffect, useState } from "react";
-import { useAI } from "@/kit/react/studio";
 import { BAND_LABEL, type Band, type Product, type Scored } from "@/lib/score";
 import type { Swap } from "@/lib/off";
 
@@ -72,8 +71,6 @@ export function ProductView({ data, onOpen }: { data: Loaded; onOpen: (code: str
 
       {/* right: the detail */}
       <div className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-5">
-        <Take product={p} />
-
         <section className="min-w-0 rounded-[var(--radius)] border border-line bg-card p-5 shadow-[var(--shadow-1)] sm:p-6">
           <h2 className="text-lg">Nutrition <span className="text-muted">per {per}</span></h2>
           {s.nutrients.length ? (
@@ -114,46 +111,6 @@ export function ProductView({ data, onOpen }: { data: Loaded; onOpen: (code: str
         <Swaps code={p.code} onOpen={onOpen} />
       </div>
     </div>
-  );
-}
-
-/** "Peel's take": the one AI part. Streams through whichever mode the person picked; the picker opens if none. */
-function Take({ product }: { product: Product }) {
-  const ai = useAI();
-  const [q, setQ] = useState("");
-  const [asked, setAsked] = useState<string | null>(null);
-  useEffect(() => { ai.setText(""); setAsked(null); setQ(""); }, [product.code]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  const go = (question?: string) => { setAsked(question ?? null); void ai.run({ product, question }); };
-  // **Lead:** → bold lead-ins; nothing else from the model is treated as markup.
-  const lines = ai.text.split("\n").map((l) => l.trim()).filter(Boolean);
-
-  return (
-    <section className="min-w-0 rounded-[var(--radius)] border border-line bg-card p-5 shadow-[var(--shadow-1)] sm:p-6">
-      <div className="flex items-center justify-between gap-3">
-        <h2 className="text-lg">Peel&apos;s take</h2>
-        {!ai.text && !ai.busy && <button type="button" className="sk-btn" onClick={() => go()}>Get Peel&apos;s take</button>}
-      </div>
-      {!ai.text && !ai.busy && !ai.error && <p className="mt-1 text-muted">A plain read of this label, written by AI from the data on this page.</p>}
-      {asked && <p className="mt-3 text-sm text-muted">You asked: {asked}</p>}
-      {(ai.text || ai.busy) && (
-        <div className="pl-take mt-3 grid gap-2 text-[16px] leading-relaxed" aria-live="polite">
-          {lines.length ? lines.map((l, i) => {
-            const m = l.replace(/^[-*•]\s*/, "").match(/^\*\*(.+?)\*\*\s*(.*)$/);
-            return <p key={i}>{m ? <><strong>{m[1]}</strong> {m[2].replace(/\*\*/g, "")}</> : l.replace(/\*\*/g, "")}</p>;
-          }) : <p className="flex items-center gap-2 text-muted"><span className="sk-spinner !size-4" /> Reading the label…</p>}
-        </div>
-      )}
-      {ai.error && <p className="sk-error sk-shake mt-3" role="alert">{ai.error.message}{ai.error.action && <> <a href={ai.error.action.url} target="_blank" rel="noopener noreferrer">{ai.error.action.label} ↗</a></>}</p>}
-      {(ai.text && !ai.busy) && (
-        <form className="mt-4 flex gap-2" onSubmit={(e) => { e.preventDefault(); const t = q.trim(); if (t) { go(t); setQ(""); } }}>
-          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Ask about it: is it OK for kids?" aria-label="Ask a question about this product"
-            className="min-h-11 flex-1 rounded-full border border-line bg-white px-4 outline-none focus:border-accent focus:shadow-[var(--focus)]" />
-          <button type="submit" className="sk-btn sk-btn-quiet" disabled={!q.trim()}>Ask</button>
-        </form>
-      )}
-      {ai.busy && <button type="button" className="sk-btn sk-btn-quiet mt-3" onClick={ai.stop}>Stop</button>}
-    </section>
   );
 }
 
